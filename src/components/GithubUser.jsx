@@ -1,16 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class GithubUser extends React.Component {
     constructor(user) {
-        this.avatar = user.avatar_url;
-        this.username = user.login;
+        super(user);
+        this.name = user.user.login;
+        this.image = user.user.avatar_url;
+        console.log(user.user);
+        console.log(user.user.login);
+        console.log(user.user.avatar_url);
     }
 
     render() {
         return (
-            <Link to={`/user/${this.username}`} >
-                <img src={`${this.avatar}`} />
-                ziad-saab
+            <Link to={`/user/${this.name}`} >
+                <img src={this.image} className="followers-info__avatar" />
+                <p className="followers-info__bio">{this.name}</p>
             </Link>
         );
     }
