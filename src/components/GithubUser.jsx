@@ -15,7 +15,8 @@ class GithubUser extends React.Component {
         return (
             <Link to={`/user/${this.name}`} >
                 <img src={this.image} className="followers-info__avatar" />
-                <p className="followers-info__bio">{this.name}</p>
+                <span className="followers-info__bio">{this.name}</span>
+                <p></p>
             </Link>
         );
     }
