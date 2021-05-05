@@ -5,6 +5,21 @@ class Followers extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        fetch(`https://api.github.com/users/${this.props.params.username}/followers`)
+        .then(response => response.json())
+        .then(
+            followers => {
+                // How can we use `this` inside a callback without binding it??
+                // Make sure you understand this fundamental difference with arrow functions!!!
+                this.setState({
+                    followers: followers
+                });
+                console.log(followers);
+            }
+        );
+    }
+
     render() {
         return (
             <div className="followers-page">
